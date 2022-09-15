@@ -1,0 +1,25 @@
+.uploads{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.forms{
+    height: 400px;
+    width: 550px;
+    border-radius: 30px;
+    border: 1px solid black;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+label{
+    font-size: 15px;
+    font-weight: bold;
+    margin: 10px;
+}

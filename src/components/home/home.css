@@ -1,0 +1,44 @@
+.Home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden; 
+}
+
+video{
+    position: relative;
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.Home__content{
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    border-radius: 30px;
+    background-color: #fff;
+    display: flex;
+    padding: 1px;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.01);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.Home__content p{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color:white;
+    padding: 5px;
+}

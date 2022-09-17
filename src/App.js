@@ -5,6 +5,7 @@ import NoMatch from './components/404/fallback.jsx';
 import Uploads from '../src/components/uploads/uploads.jsx';
 import Status from '../src/components/status/status.jsx';
 import SignUp from '../src/components/signup/signup.jsx';
+import SignIn from '../src/components/signin/signin.jsx';
 import Inbox from '../src/components/inbox/inbox.jsx';
 import Preview from './components/preview/preview.jsx';
 import {
@@ -34,6 +35,8 @@ function App (){
               <Route path="*" element={ <NoMatch />}>
               </Route>
               <Route path="/SignUp" element={<SignUp />}>
+              </Route>
+              <Route path="/SignIn" element={<SignIn />}>
               </Route>
             </Routes>
           </Router>

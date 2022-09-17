@@ -15,7 +15,8 @@ const SignUp = () => {
         signUpObject["name"] = document.getElementById('signup-name').value;
         signUpObject["rank"] = rank;
         signUpObject["email"]=document.getElementById('signup-email').value;
-        signUpObject["organisation"]=document.getElementById('signup-org-name').value;
+        signUpObject["org"]=document.getElementById('signup-org-name').value;
+        signUpObject["password"]=document.getElementById('signup-password1').value;
         console.log(signUpObject);
     }
     return (

@@ -15,25 +15,25 @@ import {
 function App (){
     return(
         <>
-        <Router>
-        <Routing/>
-        <Routes>
-          <Route path="/profile" element={<Profile />}>
-          </Route>
-          <Route path="/upload" element={<Uploads />}>
-          </Route>
-          <Route path="/status" element={<Status />}>
-          </Route>
-          <Route path="/inbox" element={<Inbox />}>
-          </Route>
-          <Route path="/viewfile" element={<Preview />}>
-          </Route>
-          <Route path="/" element={<Home />}>
-          </Route>
-          <Route path="*" element={ <NoMatch />}>
-          </Route>
-        </Routes>
-        </Router>
+          <Router>
+            <Routing/>
+            <Routes>
+              <Route path="/profile" element={<Profile />}>
+              </Route>
+              <Route path="/upload" element={<Uploads />}>
+              </Route>
+              <Route path="/status" element={<Status />}>
+              </Route>
+              <Route path="/inbox" element={<Inbox />}>
+              </Route>
+              <Route path="/viewfile" element={<Preview />}>
+              </Route>
+              <Route path="/" element={<Home />}>
+              </Route>
+              <Route path="*" element={ <NoMatch />}>
+              </Route>
+            </Routes>
+          </Router>
         </>
     );
 }

@@ -6,7 +6,7 @@ const Home = () => {
     return (
         <div className='Home'>
             {/* A video will not autoplay on page-load unless its muted */}
-            <video height="100%" width="100%" muted={true} controls={false} loop={true} autoPlay={true}>
+            <video height="100%" width="100%" muted={true} preload="auto" controls={false} loop={true} autoPlay={true}>
                 <source src={World} type="video/mp4"/>
             </video>
             <div className='Home__content'>

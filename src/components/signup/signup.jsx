@@ -1,14 +1,17 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 import './signup.css';
+import { useState } from 'react';
 
 
 const SignUp = () => {
+    const [dropVal,setDropVal] = useState("selectRank")
     var signUpObject = {};
     var rank;
 
-    const setRank = (x) => {
+    const setRank = (x,y) => {
         rank = x;
+        setDropVal(y);
     }
 
     const printObject = () => {
@@ -47,14 +50,16 @@ const SignUp = () => {
                     <td>
                     <Dropdown>
                         <Dropdown.Toggle  id="dropdown-basic">
-                            Dropdown Button
+                            {dropVal}
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
                             {/* If arrow function is not used in onclick, then the function will run without even clicking */}
-                            <Dropdown.Item id='1-Student' onClick={() => setRank(1)}>1 Student</Dropdown.Item>
-                            <Dropdown.Item onClick={() => setRank(2)}>2 FA</Dropdown.Item>
-                            <Dropdown.Item onClick={() => setRank(3)}>3 HOD</Dropdown.Item>
+                            <Dropdown.Item onClick={() => setRank(1, "Student")}>1 Student</Dropdown.Item>
+                            <Dropdown.Item onClick={() => setRank(2, "Class Representative")}>2 Class Representative</Dropdown.Item>
+                            <Dropdown.Item onClick={() => setRank(3, "Faculty Advisor")}>3 Faculty Advisor</Dropdown.Item>
+                            <Dropdown.Item onClick={() => setRank(4, "Academic Advisor")}>4 Academic Advisor</Dropdown.Item>
+                            <Dropdown.Item onClick={() => setRank(5, "HOD")}>5 HOD</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                     {/* select,options can also be used for a dropdown menu */}

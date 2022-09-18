@@ -10,7 +10,7 @@ import Inbox from '../src/components/inbox/inbox.jsx';
 import Preview from './components/preview/preview.jsx';
 import {
     BrowserRouter as Router,
-    Routes ,
+    Routes,
     Route
   } from "react-router-dom";
 

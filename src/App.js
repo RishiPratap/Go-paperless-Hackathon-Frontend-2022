@@ -18,7 +18,7 @@ function App (){
     return(
         <>
           <Router>
-            <Routing isLoggedIn={false}/>
+            <Routing isLoggedIn={true}/>
             <Routes>
               <Route path="/profile" element={<Profile />}>
               </Route>

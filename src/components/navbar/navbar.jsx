@@ -31,7 +31,7 @@ const Routing = () => {
               <Navbar.Brand href="/">TrackOn</Navbar.Brand>
               <Nav className="">
                 <Nav.Link href="/inbox">Inbox</Nav.Link>
-                <Nav.Link href="/profile">User</Nav.Link>
+                <Nav.Link href="/profile">Logout</Nav.Link>
               </Nav>
             </Container>
           </Navbar>

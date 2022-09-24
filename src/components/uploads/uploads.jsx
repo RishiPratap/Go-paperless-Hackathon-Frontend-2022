@@ -9,7 +9,6 @@ import Select from 'react-select';
 
 
 var selectedOptions = [];
-import { useState } from "react";
 
 var options = [
   { value: 'sri@gmail.com', label: 'Srihari' },

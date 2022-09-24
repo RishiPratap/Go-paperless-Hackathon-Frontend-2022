@@ -4,6 +4,24 @@ import {Link} from "react-router-dom";
 
 // After Setting up Firebase connection, all the data should be pulled from the db
 var link = ""
+var applicationList = [
+    {
+        name: "Medical Leave 1",
+        status: "Approved"
+    },
+    {
+        name: "Medical Leave 2",
+        status: "Rejected"
+    },
+    {
+        name: "Medical Leave 3",
+        status: "In Progress"
+    },
+    {
+        name: "Medical Leave 4",
+        status: "Approved"
+    },
+]
 function generateImageLink() {
     link = "https://www.gravatar.com/avatar/"+Math.random().toString(16).slice(2)+"?s=100&d=retro";
     // Math.random => generates unique alpha numeric string
@@ -15,6 +33,15 @@ var res;
 const Profile = () => {
     console.log(JSON.parse(localStorage.getItem("data")))
     res = JSON.parse(localStorage.getItem("data"));
+
+    const colors = {"Approved":"green", "Rejected":"red","In Progress":"yellow"}
+
+
+    const renderList = applicationList.map((item, index) => 
+            <div className={`bods_item ${colors[item.status]}`} key={index}><p className='file_name'>{item.name}</p><Link to='/status'><p>Check Progress</p></Link></div>
+        // console.log(item.name)
+    );
+
     return(
         <div className='Profile'>
             <div className="userProfile p-3">
@@ -47,8 +74,7 @@ const Profile = () => {
             </div>
             <div className='bods'><Link to='/upload'><p>Upload File</p></Link></div>
             <div className='History'>
-                <div className='bods_item'><p className='file_name'>File Name</p><Link to='/status'><p>Check Progress</p></Link></div>
-                <div className='bods_item'><p className='file_name'>File Name</p><Link to='/status'><p>Check Progress</p></Link></div>
+                {renderList}
             </div>
         </div>
     );

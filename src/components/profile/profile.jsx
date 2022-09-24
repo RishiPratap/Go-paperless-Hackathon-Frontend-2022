@@ -11,31 +11,33 @@ function generateImageLink() {
     // .slice(2) => removes first two characters
 }
 generateImageLink();
-
+var res;
 const Profile = () => {
+    console.log(JSON.parse(localStorage.getItem("data")))
+    res = JSON.parse(localStorage.getItem("data"));
     return(
         <div className='Profile'>
             <div className="userProfile p-3">
                 <center>
                     <h2>User Details</h2>
-                    <img className='profilePic' id='profilePic' src={link} alt="" />
+                    <img className='profilePic' id='profilePic' src={res.dp_url} alt="" />
                     <table>
                         <tbody>
                             <tr>
                                 <td>Name:</td>
-                                <td id='user-name'>Test</td>
+                                <td id='user-name'>{res.name}</td>
                             </tr>
                             <tr>
                                 <td>Email:</td>
-                                <td id='user-email'>test@gmail.com</td>
+                                <td id='user-email'>{res.email}</td>
                             </tr>
                             <tr>
                                 <td>Organisation:</td>
-                                <td id='user-org'>SRMIST</td>
+                                <td id='user-org'>{res.org}</td>
                             </tr>
                             <tr>
                                 <td>Role:</td>
-                                <td id='user-role'>Student</td>
+                                <td id='user-role'>{res.rank}</td>
                             </tr>
                         </tbody>
                     </table>

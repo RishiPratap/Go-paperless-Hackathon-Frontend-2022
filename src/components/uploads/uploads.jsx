@@ -7,7 +7,6 @@ import { createElement, useState } from "react";
 import Swal from 'sweetalert2'
 import Select from 'react-select';
 
-
 var selectedOptions = [];
 
 var options = [

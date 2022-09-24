@@ -6,10 +6,9 @@ import axios from "axios";
 import { createElement, useState } from "react";
 import Swal from 'sweetalert2'
 import Select from 'react-select';
-
+import { useState } from "react";
 
 var selectedOptions = [];
-import { useState } from "react";
 
 var options = [
   { value: 'sri@gmail.com', label: 'Srihari' },

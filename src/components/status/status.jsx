@@ -6,7 +6,7 @@ import {
   } from "react-progress-stepper";
 
 function Progress(){
-    const { step, incrementStep, decrementStep } = useStepper(0, 6);
+    const { step, incrementStep, decrementStep } = useStepper(0, 6); //(current, total hops)
     return(
         <div className="step">
        <div className='steps'>

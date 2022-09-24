@@ -13,12 +13,25 @@ import {
     Routes,
     Route
   } from "react-router-dom";
+import { useEffect, useState } from 'react';
 
 function App (){
+
+  const [login, setLogin] = useState(false);
+    useEffect(() => {
+      const a = localStorage.getItem("email");
+      if(a){
+        setLogin(true);
+      }
+      else{
+        setLogin(false);
+      }
+    });
+
     return(
         <>
           <Router>
-            <Routing isLoggedIn={true}/>
+            <Routing isLoggedIn={login}/>
             <Routes>
               <Route path="/profile" element={<Profile />}>
               </Route>

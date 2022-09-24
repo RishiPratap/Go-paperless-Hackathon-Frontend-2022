@@ -21,6 +21,9 @@ const SignUp = () => {
         signUpObject["org"]=document.getElementById('signup-org-name').value;
         signUpObject["password"]=document.getElementById('signup-password1').value;
         console.log(signUpObject);
+
+
+        localStorage.setItem("email", signUpObject.email);
     }
     return (
         <center><div className='signUpDiv mt-5 p-5'>

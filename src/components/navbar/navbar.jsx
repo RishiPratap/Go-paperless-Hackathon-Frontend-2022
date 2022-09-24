@@ -3,14 +3,27 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './navbar.css';
+import { useEffect, useState } from 'react';
 
-const Routing = (props) => { 
-  const isLoggedIn = props.isLoggedIn;
+const Routing = () => { 
+  
   {/* Profile should be visible only after login */}
   {/* <Nav.Link href="/profile">Profile</Nav.Link> */}
   {/* Inbox should be visible only after login */}
   {/* <Nav.Link href="/Inbox">Inbox</Nav.Link> */}
-    if(isLoggedIn){
+
+
+  const [login, setLogin] = useState(false);
+  useEffect(() => {
+    const a = localStorage.getItem("email");
+    if(a){
+      setLogin(true);
+    }
+    else{
+      setLogin(false);
+    }
+  });
+    if(login){
       return(
         <>
           <Navbar bg="dark" variant="dark">

@@ -31,7 +31,7 @@ const SignUp = () => {
     signUpObject["dp_url"]="https://www.gravatar.com/avatar/"+Math.random().toString(16).slice(2)+"?s=100&d=retro";
     console.log(signUpObject);
     axios
-      .post("http://localhost:3000/users/createnewuser", signUpObject)
+      .post("https://repo-paperless.onrender.com/users/createnewuser", signUpObject)
       .then(function (response) {
         console.log(response);
         localStorage.setItem("email", signUpObject.email);

@@ -8,6 +8,7 @@ import Swal from 'sweetalert2'
 import Select from 'react-select';
 
 var selectedOptions = [];
+var applnObj = {};
 
 var options = [
   { value: 'sri@gmail.com', label: 'Srihari' },
@@ -67,6 +68,27 @@ function Uploads() {
 
   function submit_details(){
     console.log(selectedOptions);
+    applnObj["accessToken"] = "sl.BP-4-ZgsOrCUADuqnWOAzE3ll2XHBtC7YxWxITtpCza-z7bXIoxX5ysRuhpM1VP7ptKQ_R2Vno6gly7bp1BY-H0n00_dos2EC8KC-Uw7K2g1BY1owGmi8sZq7jRAeZbhUUQrXWU55TeG";
+    applnObj["appName"] = document.getElementById("applnName").value;
+    applnObj["email"] = JSON.parse(localStorage.getItem("data")).email;
+    //applnObj["applType"] = document.getElementById("applnType").value;
+    applnObj["signers"] = selectedOptions;
+
+    console.log(applnObj);
+    axios
+      .post("http://localhost:3000/dropbox/createapplication", applnObj)
+      .then(function (response) {
+        console.log(response);
+        // response.url => url to open
+        window.location.href.replace("/profile");
+        window.open(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+        alert(error.message);
+      });
+    // dropbox/createapplication => POST
+    window.location.href.replace("/profile");
   }
 
   const [contacts, setContacts] = useState([<Contact i={1} key={1}/>]);
@@ -77,7 +99,7 @@ function Uploads() {
         <Form onSubmit={(e) => e.preventDefault()}>
           <Form.Group className="mb-3" controlId="formGroupText">
             <Form.Label>Application Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter application name" />
+            <Form.Control id="applnName" type="text" placeholder="Enter application name" />
           </Form.Group>
           <Form.Group controlId="contacts-list" className="Contact-list">
             {contacts}

@@ -32,7 +32,7 @@ const Profile = () => {
     }
     res = JSON.parse(localStorage.getItem("data"));
 
-    const colors = {"Approved":"green", "Rejected":"red", "In Progress":"yellow"}
+    const colors = {"Approved":"green", "Rejected":"red", "In Progress":"yellow", "Inbox" : "blue"}
 
 
     const renderList = applicationList.map((item, index) => 

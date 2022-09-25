@@ -22,13 +22,8 @@ var applicationList = [
         status: "Approved"
     },
 ]
-function generateImageLink() {
-    link = "https://www.gravatar.com/avatar/"+Math.random().toString(16).slice(2)+"?s=100&d=retro";
-    // Math.random => generates unique alpha numeric string
-    // .toString(16) => generates alpha numeric string containing characters in 0-9 and a-f
-    // .slice(2) => removes first two characters
-}
-generateImageLink();
+
+var arr = ["Student", "Class Representative", "Faculty Advisor", "HOD"];
 var res;
 const Profile = () => {
     console.log(JSON.parse(localStorage.getItem("data")))
@@ -37,7 +32,7 @@ const Profile = () => {
     }
     res = JSON.parse(localStorage.getItem("data"));
 
-    const colors = {"Approved":"green", "Rejected":"red","In Progress":"yellow"}
+    const colors = {"Approved":"green", "Rejected":"red", "In Progress":"yellow"}
 
 
     const renderList = applicationList.map((item, index) => 
@@ -67,7 +62,7 @@ const Profile = () => {
                             </tr>
                             <tr>
                                 <td>Role:</td>
-                                <td id='user-role'>{res.rank}</td>
+                                <td id='user-role'>{arr[res.rank]}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -75,7 +70,7 @@ const Profile = () => {
                     {/* <button>Update</button> */}
                 </center>
             </div>
-            <div className='bods'><Link to='/upload'><p>Upload File</p></Link></div>
+            <div className='bods'><Link to='/upload'><p>Create New Application</p></Link></div>
             <div className='History'>
                 {renderList}
             </div>

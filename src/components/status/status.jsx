@@ -47,9 +47,33 @@ function Progress(){
           </Stepper>
         </div>
       </div>
-      <div>
-        {files}
-      </div>
+      <center><table className='b1 p-3'>
+        <tr>
+          <td>
+            Application name:
+          </td>
+          <td>
+            {applName}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Application file: 
+          </td>
+          <td>
+            {prog_details.files[0]}
+          </td>
+          
+        </tr>
+        <tr>
+          <td>
+           Proof: 
+          </td>
+          <td>
+            {prog_details.files[1]}
+          </td>
+        </tr>
+      </table></center>
     </>
     );
 }

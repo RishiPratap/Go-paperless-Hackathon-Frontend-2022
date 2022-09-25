@@ -55,7 +55,6 @@ function Progress() {
         // console.log(prog_details);
         const email = localStorage.getItem("email");
 
-        setDone(true);
         if (resp.data["signers"][resp.data.current_hop] == email) {
           setSigner(true);
         }
@@ -87,6 +86,7 @@ function Progress() {
               .split("=")[1]
               .replaceAll("%20", " "),
           });
+          setSigner(false);
         });
       });
   }
@@ -102,13 +102,6 @@ function Progress() {
     prog_details.total_hops
   ); //(current, total hops)
   return (
-    // <>
-    //   {Done ? (
-    //     <div></div>
-    //   ) : (
-
-    //   )}
-    // </>
     <>
       <div className="step">
         <div className="steps">

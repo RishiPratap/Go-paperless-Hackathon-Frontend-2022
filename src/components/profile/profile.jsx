@@ -1,44 +1,53 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './profile.css';
 import {Link} from "react-router-dom";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 // After Setting up Firebase connection, all the data should be pulled from the db
-var link = ""
-var applicationList = [
-    {
-        name: "Medical Leave 1",
-        status: "Approved"
-    },
-    {
-        name: "Medical Leave 2",
-        status: "Rejected"
-    },
-    {
-        name: "Medical Leave 3",
-        status: "In Progress"
-    },
-    {
-        name: "Medical Leave 4",
-        status: "Approved"
-    },
-]
+var link = "";
+
+
 
 var arr = ["Student", "Class Representative", "Faculty Advisor", "HOD"];
 var res;
 const Profile = () => {
+    const [applicationList, setapplications] = useState([
+        {
+            name: "Name",
+            status: "Rejected"
+        },
+    ])
+
+    let renderList = [];
+
+
+    useEffect(() => {
+        axios.post('http://localhost:3000/dropbox/viewapplication', {
+            email : localStorage.getItem("email"),
+        }).then((response) => {
+            console.log(response.data);
+            // applicationList = response.data;
+            setapplications(response.data);
+        });
+
+        
+        
+    }, []);
+    const colors = {"Approved":"green", "Rejected":"red", "Pending":"yellow", "Inbox" : "blue"}
+    renderList = applicationList.map((item, index) => 
+            <div className={`bods_item ${colors[item.status]}`} key={index}><p className='file_name'>{item.name}</p><Link to={`/status?appln=${item.name}`}><p>Check Progress</p></Link></div>);
+
+
     console.log(JSON.parse(localStorage.getItem("data")))
     if(localStorage.getItem("email") == null){
         alert("Please Login to continue");
     }
     res = JSON.parse(localStorage.getItem("data"));
 
-    const colors = {"Approved":"green", "Rejected":"red", "In Progress":"yellow", "Inbox" : "blue"}
 
 
-    const renderList = applicationList.map((item, index) => 
-            <div className={`bods_item ${colors[item.status]}`} key={index}><p className='file_name'>{item.name}</p><Link to={`/status?appln=${item.name}`}><p>Check Progress</p></Link></div>
-        // console.log(item.name)
-    );
+    
 
     return(
         <div className='Profile'>

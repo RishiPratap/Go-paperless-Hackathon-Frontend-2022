@@ -65,7 +65,6 @@ function Progress() {
         });
 
         client.on("finish", (data)=>{axios.post("http://localhost:3000/users/updatehop", {email: "ps2644@srmist.edu.in", application_name : "ML 3"})});
-
       });
   }
 

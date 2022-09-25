@@ -38,7 +38,7 @@ const Profile = () => {
 
 
     const renderList = applicationList.map((item, index) => 
-            <div className={`bods_item ${colors[item.status]}`} key={index}><p className='file_name'>{item.name}</p><Link to='/status'><p>Check Progress</p></Link></div>
+            <div className={`bods_item ${colors[item.status]}`} key={index}><p className='file_name'>{item.name}</p><Link to={`/status?appln=${item.name}`}><p>Check Progress</p></Link></div>
         // console.log(item.name)
     );
 

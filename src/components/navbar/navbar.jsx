@@ -22,7 +22,7 @@ const Routing = () => {
     else{
       setLogin(false);
     }
-  });
+  },[]);
     if(login){
       return(
         <>

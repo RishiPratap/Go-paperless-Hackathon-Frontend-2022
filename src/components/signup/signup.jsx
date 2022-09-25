@@ -1,14 +1,13 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import Dropdown from "react-bootstrap/Dropdown";
 import "./signup.css";
-import { useEffect, useState } from 'react';
+import {useState } from 'react';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import '../navbar/navbar.jsx';
    
 
 var rank;
-var response;
 const SignUp = () => {
     const navigate = useNavigate();
   const [dropVal, setDropVal] = useState("selectRank");
@@ -39,6 +38,7 @@ const SignUp = () => {
         if(response.status == 200){
             localStorage.setItem("data",JSON.stringify(signUpObject));
             navigate("/profile");
+            window.location.reload();
 
         }
       })

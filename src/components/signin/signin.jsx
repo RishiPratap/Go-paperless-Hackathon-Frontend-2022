@@ -19,6 +19,7 @@ const SignIn = () => {
         if(response.status == 200){
             localStorage.setItem("data",JSON.stringify(response.data));
             navigate("/profile");
+            window.location.reload();
         }
       })
       .catch(function (error) {
@@ -26,7 +27,6 @@ const SignIn = () => {
         alert(error.message);
       });
 
-        localStorage.setItem("email", signInObject.email);
     }
     return (
         <center><div className='signInDiv mt-5 p-5'>

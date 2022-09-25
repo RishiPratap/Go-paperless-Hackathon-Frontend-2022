@@ -32,6 +32,9 @@ generateImageLink();
 var res;
 const Profile = () => {
     console.log(JSON.parse(localStorage.getItem("data")))
+    if(localStorage.getItem("email") == null){
+        alert("Please Login to continue");
+    }
     res = JSON.parse(localStorage.getItem("data"));
 
     const colors = {"Approved":"green", "Rejected":"red","In Progress":"yellow"}

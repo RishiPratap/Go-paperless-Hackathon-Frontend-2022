@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { createElement, useState } from "react";
 import Swal from 'sweetalert2'
 import Select from 'react-select';
@@ -58,6 +59,7 @@ function Contact({i}){
 }
 
 function Uploads() {
+  const navigate = useNavigate();
 
   function addSignee(){
     let a = contacts;
@@ -80,12 +82,28 @@ function Uploads() {
       .then(function (response) {
         console.log(response);
         // response.url => url to open
-        window.location.href.replace("/profile");
+        navigate("/profile");
         window.open(response.data);
       })
       .catch(function (error) {
         console.log(error);
-        alert(error.message);
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+        
+        Toast.fire({
+          icon: 'error',
+          title: `${error.message}`
+        })
+
       });
     // dropbox/createapplication => POST
     window.location.href.replace("/profile");
@@ -115,6 +133,7 @@ function Uploads() {
           </Form.Group>
         </Form>
       </div>
+      <div className="Explore"></div>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import {useState } from 'react';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import '../navbar/navbar.jsx';
-   
+import Swal from "sweetalert2";
 
 var rank;
 const SignUp = () => {
@@ -31,7 +31,7 @@ const SignUp = () => {
     signUpObject["dp_url"]="https://www.gravatar.com/avatar/"+Math.random().toString(16).slice(2)+"?s=100&d=retro";
     console.log(signUpObject);
     axios
-      .post("https://repo-paperless.onrender.com/users/createnewuser", signUpObject)
+      .post("http://localhost:3000/users/createnewuser", signUpObject)
       .then(function (response) {
         console.log(response);
         localStorage.setItem("email", signUpObject.email);
@@ -44,12 +44,28 @@ const SignUp = () => {
       })
       .catch(function (error) {
         console.log(error);
-        alert(error.message);
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+        
+        Toast.fire({
+          icon: 'error',
+          title: `${error.message}`
+        })
       });
     
   };
   return (
     <center>
+    <div className="Explore"></div>
       <div className="signUpDiv mt-5 p-5">
         <table>
           <tr>
@@ -115,6 +131,7 @@ const SignUp = () => {
         </table>
         <button onClick={() => printObject()}>Submit</button>
       </div>
+      
     </center>
   );
 };

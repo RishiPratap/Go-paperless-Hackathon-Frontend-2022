@@ -16,6 +16,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
+    border: 4px double #3CF0C5;
 }
 .bods p{
     margin-top: 1rem;
@@ -26,13 +27,17 @@
 .History{
     height: 350px;
     width: 450px;
-    border: 1px solid black;
     border-radius: 30px;
+    background: rgba(255, 255, 255, 0.19);
+    box-shadow: 0px 0px 20px 0px white;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
     padding: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    overflow-y: scroll;
 }
 
 .bods_item{
@@ -67,32 +72,71 @@ p.file_name{
 
 a{
     text-decoration: none !important;
+    color: black;
 }
 
 .userProfile{
     width: 50%;
-    border: 2px solid black;
     border-radius: 30px;
+    background: rgba(255, 255, 255, 0.19);
+    box-shadow: 0px 0px 20px 0px white;
+backdrop-filter: blur(0px);
+-webkit-backdrop-filter: blur(0px);
 }
 
 .profilePic{
     border-radius: 100%;
+    border: 4px double #3CF0C5;
 }
 
 .green{
-    background-color: green;    
+    background-color: lightgreen;    
 }
 
 .red{
-    background-color: red;
+    background-color: lightpink;
 }
 
 .yellow{
-    background-color: yellow;   
+    background-color: yellow;;   
 }
 .orange{
-    background-color: orange;   
+    background-color: rgb(235, 187, 98);   
 }
 .blue{
-    background-color: blue;
+    background-color: lightskyblue;
 }
+
+::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  .Explore{
+    width: 250px;
+    height: 250px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 100px;
+    color: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    background: linear-gradient(-45deg, #FFA63D, #FF3D77, #338AFF, #3CF0C5);
+    background-size: 600%;
+    animation: anime 16s linear infinite;
+    position: absolute;
+     margin-left: 600px;
+     margin-top: 100px;
+     z-index: -1;
+     filter: blur(100px);
+     opacity: 0.8;
+}
+@keyframes anime{
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+} 

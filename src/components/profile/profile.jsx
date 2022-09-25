@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './profile.css';
 import {Link} from "react-router-dom";
 import { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 import axios from 'axios';
 
 // After Setting up Firebase connection, all the data should be pulled from the db
@@ -12,10 +13,11 @@ var link = "";
 var arr = ["Student", "Class Representative", "Faculty Advisor", "HOD"];
 var res;
 const Profile = () => {
+
     const [applicationList, setapplications] = useState([
         {
-            name: "Name",
-            status: "Rejected"
+            name: "Loading...",
+            status: "Approved"
         },
     ])
 
@@ -41,7 +43,19 @@ const Profile = () => {
 
     console.log(JSON.parse(localStorage.getItem("data")))
     if(localStorage.getItem("email") == null){
-        alert("Please Login to continue");
+        //alert("Please Login to continue");
+        Swal.fire({
+            title: 'Please Login to continue!',
+            text: "You are logout from device!",
+            icon: 'warning',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Confirm',
+            allowOutsideClick: false,
+          }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.replace("/signin");
+            }
+          })
     }
     res = JSON.parse(localStorage.getItem("data"));
 
@@ -51,6 +65,7 @@ const Profile = () => {
 
     return(
         <div className='Profile'>
+        <div className="Explore"></div>
             <div className="userProfile p-3">
                 <center>
                     <h2>User Details</h2>

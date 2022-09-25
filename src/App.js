@@ -8,6 +8,7 @@ import SignUp from '../src/components/signup/signup.jsx';
 import SignIn from '../src/components/signin/signin.jsx';
 import Inbox from '../src/components/inbox/inbox.jsx';
 import Preview from './components/preview/preview.jsx';
+import './App.css';
 import {
     BrowserRouter as Router,
     Routes,

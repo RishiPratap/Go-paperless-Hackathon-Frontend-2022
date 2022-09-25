@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './signin.css';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import Swal from 'sweetalert2';
 
 const SignIn = () => {
     var signInObject = {};
@@ -24,12 +24,29 @@ const SignIn = () => {
       })
       .catch(function (error) {
         console.log(error);
-        alert(error.message);
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: 'error',
+            title: `${error.message}`
+          })
       });
 
     }
     return (
+      <>
         <center><div className='signInDiv mt-5 p-5'>
+        
             <table>
                 <tr>
                     <td>Email</td>
@@ -42,6 +59,8 @@ const SignIn = () => {
             </table>
             <button onClick={()=> printObject()}>Submit</button>
         </div></center>
+        <div className="Explore"></div>
+      </>
     );
 }
 

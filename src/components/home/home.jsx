@@ -10,7 +10,7 @@ const Home = () => {
                 <source src={World} type="video/mp4"/>
             </video>
             <div className='Home__content'>
-                <p>Welcome to your very own personal form status checker</p>
+                <p>TrackOn is a form submission progress viewer</p>
             </div>
         </div>
     );

@@ -12,6 +12,10 @@ const Routing = () => {
   {/* Inbox should be visible only after login */}
   {/* <Nav.Link href="/Inbox">Inbox</Nav.Link> */}
 
+  function logout() {
+    localStorage.clear();
+    window.location.replace("signin");
+  }
 
   const [login, setLogin] = useState(false);
   useEffect(() => {
@@ -31,7 +35,7 @@ const Routing = () => {
               <Navbar.Brand href="/">TrackOn</Navbar.Brand>
               <Nav className="">
                 <Nav.Link href="/inbox">Inbox</Nav.Link>
-                <Nav.Link href="/profile">Logout</Nav.Link>
+                <Nav.Link onClick={() => logout()}>Logout</Nav.Link>
               </Nav>
             </Container>
           </Navbar>

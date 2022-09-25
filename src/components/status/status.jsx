@@ -13,14 +13,20 @@ const client = new HelloSign({
 });
 
 var prog_details = {
-  current_hop: 1,
-  total_hops: 6,
-  files: [
-    "Parth Sundarka - WhatsApp Image 2022-09-15 at 6.58.06 PM.jpeg",
-    "Parth Sundarka - WhatsApp Image 2022-09-15 at 6.58.04 PM.jpeg",
-  ],
-  signers: ["parthusun8@gmail.com", "ram@ram.com"],
+  
 };
+
+axios.post("http://localhost:3000/dropbox/getprogress", {
+  accessToken : "sl.BP-xCnk-BCC9N3qQoYT-bXqD_TdOz39sWcfKfr61SCwZ6tHIC34bDLbZMN6Vmd84HzJg42yvLvojeb329aCzoos4-HzVTnTeTA3U4HRhlefBNW-B7p2T7-nHOx3ei0YMwWncka5S5FYA",
+  path : window.location.href
+  .split("?")[1]
+  .split("=")[1]
+  .replaceAll("%20", " "),
+  email : localStorage.getItem("email"),
+}).then((resp) => {
+  console.log(resp.data);
+  prog_details = resp;
+})
 
 const steps = [];
 for (let i = 0; i < prog_details.total_hops; i++) {
@@ -52,10 +58,14 @@ function Progress() {
     }
   }, []);
   function launchSign() {
+    console.log("Clicked");
     axios
       .post("http://localhost:3000/hellosign/getsignurl", {
-        email: "ps2644@srmist.edu.in",
-        application_name: "ML 3",
+        email: localStorage.getItem("email"),
+        application_name: window.location.href
+        .split("?")[1]
+        .split("=")[1]
+        .replaceAll("%20", " ") ,
       })
       .then((res) => {
         client.open(res.data, {
@@ -64,7 +74,9 @@ function Progress() {
           allowCancel: true,
         });
 
-        client.on("finish", (data)=>{axios.post("http://localhost:3000/users/updatehop", {email: "ps2644@srmist.edu.in", application_name : "ML 3"})});
+        client.on("finish", (data)=>{axios.post("http://localhost:3000/users/updatehop", {email: "ps2644@srmist.edu.in", application_name : "ML 3"});
+        setSigner(false);
+      });
       });
   }
 

@@ -32,7 +32,7 @@ const Profile = () => {
     }
     res = JSON.parse(localStorage.getItem("data"));
 
-    const colors = {"Approved":"green", "Rejected":"red","In Progress":"yellow"}
+    const colors = {"Approved":"green", "Rejected":"red", "In Progress":"yellow"}
 
 
     const renderList = applicationList.map((item, index) => 
@@ -70,7 +70,7 @@ const Profile = () => {
                     {/* <button>Update</button> */}
                 </center>
             </div>
-            <div className='bods'><Link to='/upload'><p>Create Application</p></Link></div>
+            <div className='bods'><Link to='/upload'><p>Create New Application</p></Link></div>
             <div className='History'>
                 {renderList}
             </div>

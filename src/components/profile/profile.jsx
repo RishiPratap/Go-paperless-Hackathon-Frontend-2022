@@ -66,19 +66,19 @@ const Profile = () => {
                     <table>
                         <tbody>
                             <tr>
-                                <td>Name:</td>
+                                <td className='cyan'>Name:</td>
                                 <td id='user-name'>{res.name}</td>
                             </tr>
                             <tr>
-                                <td>Email:</td>
+                                <td className='cyan'>Email:</td>
                                 <td id='user-email'>{res.email}</td>
                             </tr>
                             <tr>
-                                <td>Organisation:</td>
+                                <td className='cyan'>Organisation:</td>
                                 <td id='user-org'>{res.org}</td>
                             </tr>
                             <tr>
-                                <td>Role:</td>
+                                <td className='cyan'>Role:</td>
                                 <td id='user-role'>{arr[res.rank]}</td>
                             </tr>
                         </tbody>

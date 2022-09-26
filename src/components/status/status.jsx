@@ -96,9 +96,7 @@ function Progress() {
       .then((resp) => {
         console.log(resp);
         setprog(resp.data);
-        for(var i=0; i<resp.data.current_hop; i++){
-          incrementStep();
-        }
+        
 
         const stepsLOC = [];
         for (let i = 0; i < resp.data.total_hops; i++) {
@@ -164,10 +162,19 @@ function Progress() {
   // setname(applName);
 
   console.log(applName);
+
+
   const { step, incrementStep, decrementStep } = useStepper(
-    prog_details.current_hop,
-    prog_details.total_hops
-  ); //(current, total hops)
+    1,
+    prog_details.total_hops+1
+  ); 
+
+  // setTimeout(()=>{
+  //   for(var i=0; i<prog_details.current_hop - 1; i++){
+  //     incrementStep();
+  //   }
+  // }, 3000);
+  //(current, total hops)
   return (
     <>
       <div className="step mt-5">

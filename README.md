@@ -1,7 +1,7 @@
 # <b>SigNation</b> is Form submission status viewer <img src=https://www.linkpicture.com/q/WhatsApp-Image-2022-09-26-at-22.01.40.jpeg height=120 width=200 align='right'>
-![](https://img.shields.io/github/forks/RishiPratap/hellosign-frontend?color=green&style=for-the-badge)
-![](https://img.shields.io/github/stars/RishiPratap/hellosign-frontend?color=blueviolet&style=for-the-badge)
-![](https://img.shields.io/github/license/RishiPratap/hellosign-frontend?color=blue&style=for-the-badge)
+![](https://img.shields.io/github/forks/RishiPratap/Go-paperless-Hackathon-Frontend-2022?color=green&style=for-the-badge)
+![](https://img.shields.io/github/stars/RishiPratap/Go-paperless-Hackathon-Frontend-2022?color=blueviolet&style=for-the-badge)
+![](https://img.shields.io/github/license/RishiPratap/Go-paperless-Hackathon-Frontend-2022?color=blue&style=for-the-badge)
 ![](https://img.shields.io/badge/version-1.0-pink.svg?style=for-the-badge)
 
 `SigNation is Form submission status viewer.` 

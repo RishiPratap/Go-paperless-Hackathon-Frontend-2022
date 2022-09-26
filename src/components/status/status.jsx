@@ -27,18 +27,74 @@ function Progress() {
   const [files, setFiles] = useState([]);
   const [Done, setDone] = useState(false);
   const [isSigner, setSigner] = useState(false);
+  const [isClicked, setClick] = useState(false);
+
+  const loaderAnimation = (
+    <svg
+      width="38"
+      height="38"
+      viewBox="0 0 38 38"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <linearGradient x1="8.042%" y1="0%" x2="65.682%" y2="23.865%" id="a">
+          <stop stop-color="#fff" stop-opacity="0" offset="0%" />
+          <stop stop-color="#fff" stop-opacity=".631" offset="63.146%" />
+          <stop stop-color="#fff" offset="100%" />
+        </linearGradient>
+      </defs>
+      <g fill="none" fill-rule="evenodd">
+        <g transform="translate(1 1)">
+          <path
+            d="M36 18c0-9.94-8.06-18-18-18"
+            id="Oval-2"
+            stroke="url(#a)"
+            stroke-width="2"
+          >
+            <animateTransform
+              attributeName="transform"
+              type="rotate"
+              from="0 18 18"
+              to="360 18 18"
+              dur="0.9s"
+              repeatCount="indefinite"
+            />
+          </path>
+          <circle fill="#fff" cx="36" cy="18" r="1">
+            <animateTransform
+              attributeName="transform"
+              type="rotate"
+              from="0 18 18"
+              to="360 18 18"
+              dur="0.9s"
+              repeatCount="indefinite"
+            />
+          </circle>
+        </g>
+      </g>
+    </svg>
+  );
 
   useEffect(() => {
+    const isInbox = window.location.href
+      .split("?")[1]
+      .split("&")[1]
+      .split("=")[1];
+    const options = {
+      email: localStorage.getItem("email"),
+      accessToken:
+        "sl.BP-TktAPHZ9O3faK3zy3mG9vEIZfakDJC92NIJL3JE-TxVX47nmhuFYOHwjdcthAc5r4sVjgw4ehEjgatx-fNbf31-o1TEEDp58byB7tM5ieYRCCdgbUZOcE2w7uG4iWdPdSUm8S1LNC",
+      path: window.location.href
+        .split("?")[1]
+        .split("&")[0]
+        .split("=")[1]
+        .replaceAll("%20", " "),
+    };
+    if (isInbox) {
+      options.email = "ps2644@srmist.edu.in";
+    }
     axios
-      .post("http://localhost:3000/dropbox/getprogress", {
-        email: localStorage.getItem("email"),
-        accessToken:
-          "sl.BP8gzzFFN1rAOGEiD5Nqi0OF-prvAiL8n5mAejzODoQzbs37bqRAJsIX2P-mEkLn9z1UakcgsZ-4a7gI0gJUrJ8duvz77xIjZvpRn6IuDpI7ucsizRZxzgrg1TPbQpto1MzUjmZJrI4G",
-        path: window.location.href
-          .split("?")[1]
-          .split("=")[1]
-          .replaceAll("%20", " "),
-      })
+      .post("http://localhost:3000/dropbox/getprogress", options)
       .then((resp) => {
         console.log(resp);
         setprog(resp.data);
@@ -62,14 +118,15 @@ function Progress() {
   }, []);
 
   function launchSign() {
-    console.log("Clicked");
+    setClick(true);
     axios
       .post("http://localhost:3000/hellosign/getsignurl", {
         email: localStorage.getItem("email"),
         application_name: window.location.href
-          .split("?")[1]
-          .split("=")[1]
-          .replaceAll("%20", " "),
+        .split("?")[1]
+        .split("&")[0]
+        .split("=")[1]
+        .replaceAll("%20", " "),
       })
       .then((res) => {
         client.open(res.data, {
@@ -77,23 +134,26 @@ function Progress() {
           debug: true,
           allowCancel: true,
         });
+        setClick(false);
 
         client.on("finish", (data) => {
           axios.post("http://localhost:3000/users/updatehop", {
             email: localStorage.getItem("email"),
             application_name: window.location.href
-              .split("?")[1]
-              .split("=")[1]
-              .replaceAll("%20", " "),
+            .split("?")[1]
+            .split("&")[0]
+            .split("=")[1]
+            .replaceAll("%20", " "),
           });
           setSigner(false);
         });
       });
   }
   const applName = window.location.href
-    .split("?")[1]
-    .split("=")[1]
-    .replaceAll("%20", " ");
+  .split("?")[1]
+  .split("&")[0]
+  .split("=")[1]
+  .replaceAll("%20", " ");
   // setname(applName);
 
   console.log(applName);
@@ -110,18 +170,18 @@ function Progress() {
       </div>
       <center>
         <table className="b1 p-3 mt-5">
-          <tr className="text-center">test</tr>
+          
           <tr>
             <td>Application name:</td>
             <td>{applName}</td>
           </tr>
           <tr>
             <td>Application file:</td>
-            <td>{files[0]?files[0]:"File is not uploaded yet"}</td>
+            <td>{files[0] ? files[0] : "File is not uploaded yet"}</td>
           </tr>
           <tr>
             <td>Proof:</td>
-            <td>{files[1]?files[1]:"File is not uploaded yet"}</td>
+            <td>{files[1] ? files[1] : "File is not uploaded yet"}</td>
           </tr>
         </table>
       </center>
@@ -129,7 +189,10 @@ function Progress() {
         <div className="btns">
           <center>
             <button className="btn btn-primary" onClick={launchSign}>
-              Sign
+              {isClicked ? loaderAnimation : "Sign"}
+            </button>
+            <button className="btn btn-primary">
+              "Reject"
             </button>
           </center>
         </div>

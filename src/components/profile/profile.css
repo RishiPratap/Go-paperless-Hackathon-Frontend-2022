@@ -141,3 +141,7 @@ backdrop-filter: blur(0px);
     cursor: pointer;
     background-color: #99b0cf;
 }
+.cyan{
+    color: cyan;
+    font-size: larger;
+}

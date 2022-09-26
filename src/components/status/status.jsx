@@ -189,11 +189,11 @@ function Progress() {
       {isSigner ? (
         <div className="btns">
           <center>
-            <button className="btn btn-primary" onClick={launchSign}>
+            <button className="btn btn-primary mx-3" onClick={launchSign}>
               {isClicked ? loaderAnimation : "Sign"}
             </button>
             <button className="btn btn-primary">
-              "Reject"
+              Reject
             </button>
           </center>
         </div>

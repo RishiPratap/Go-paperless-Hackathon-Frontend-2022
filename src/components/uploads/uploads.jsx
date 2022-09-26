@@ -8,10 +8,10 @@ import { createElement, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import Select from "react-select";
 
-function Uploads() {
-  var selectedOptions = [];
-  var applnObj = {};
+var selectedOptions = [];
+var applnObj = {};
 
+function Uploads() {
   const [options, setOptions] = useState([{
     value: "add",
     label: "Add contact",
@@ -63,7 +63,9 @@ function Uploads() {
       if (formValues) {
         Swal.fire(JSON.stringify(formValues));
       }
-    } else {
+    } 
+    else {
+      console.log("Heyyyy");
       selectedOptions[i] = val;
     }
   }
@@ -93,7 +95,7 @@ function Uploads() {
   }
 
   function submit_details() {
-    console.log(selectedOptions);
+    console.log("Signers:",selectedOptions);
     applnObj["accessToken"] =
       "sl.BP-8MwxaTjDUe5ax8RF_nDXCcL-J54iwbC_l7997WlXqP5HJxiLzFmtwH2Hz9HpgVExwnr-KKQqDvc2gQ12gr06AbbVHuDmCY2Zj7xdRvEwytaNc6xoucP9iQsZtsUFBD1QzdjCHyNpS";
     applnObj["appName"] = document.getElementById("applnName").value;

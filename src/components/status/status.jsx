@@ -16,6 +16,19 @@ const client = new HelloSign({
 
 // axios.post("http://localhost:3000/dropbox/getprogress", )
 
+const Status = ({prog_details, steps}) => {
+
+  const { step, incrementStep, decrementStep } = useStepper(
+    prog_details.current_hop,
+    prog_details.total_hops+1
+  );
+
+  return (<div className="steps">
+          <Stepper step={step}>{steps}</Stepper>
+        </div>);
+}
+
+
 function Progress() {
   const [prog_details, setprog] = useState([]);
   const [steps, setStep] = useState([]);
@@ -78,7 +91,7 @@ function Progress() {
     const options = {
       email: localStorage.getItem("email"),
       accessToken:
-        "sl.BQBJanI7ZpmzjtwJYCjZOOW7WgQgLZMwMt9DW4nAP5p7NeOYofdtKX9OybXxutdoD8pWb8ybS1DsT-TIRDlAuoeQi6apqj9vtbHxZLH4ie1i8Y97klAbhs5z5Ga_OFTYhMmj-K-2RGhm",
+        "sl.BQAVc4hdpa7QZMxzTvX359c2jt3hZpW8iGrIeav2OECumcaVcoqjxS_tiXrOIYaWfhJBi9q1TrxsT9Vn_QwruzfL23YDUzmTsl_mEIzsPCRJIGgkvS4vUpH2tzaxEe4LbXureyqp2zJv",
       path: window.location.href
         .split("?")[1]
         .split("&")[0]
@@ -97,7 +110,6 @@ function Progress() {
         console.log(resp);
         setprog(resp.data);
         
-
         const stepsLOC = [];
         for (let i = 0; i < resp.data.total_hops; i++) {
           stepsLOC.push(<Step />);
@@ -114,6 +126,7 @@ function Progress() {
         if (resp.data["signers"][resp.data.current_hop] == email) {
           setSigner(true);
         }
+        setDone(true);
       });
   }, []);
 
@@ -150,7 +163,7 @@ function Progress() {
         client.on("finish", () => {
           axios.post("http://localhost:3000/users/updatehop", options);
           setSigner(false);
-          incrementStep();
+          window.location.reload();
         });
       });
   }
@@ -164,10 +177,7 @@ function Progress() {
   console.log(applName);
 
 
-  const { step, incrementStep, decrementStep } = useStepper(
-    1,
-    prog_details.total_hops+1
-  ); 
+  
 
   // setTimeout(()=>{
   //   for(var i=0; i<prog_details.current_hop - 1; i++){
@@ -178,9 +188,7 @@ function Progress() {
   return (
     <>
       <div className="step mt-5">
-        <div className="steps">
-          <Stepper step={step}>{steps}</Stepper>
-        </div>
+        {Done ? <Status prog_details={prog_details} steps={steps}/> : <></>}
       </div>
       <center>
         <table className="b1 p-3 mt-5">

@@ -72,31 +72,31 @@ const SignUp = () => {
           <tr>
             <td>Name</td>
             <td>
-              <input id="signup-name" type="text" />
+              <input id="signup-name" placeholder="Enter name" type="text" />
             </td>
           </tr>
           <tr>
             <td>Email</td>
             <td>
-              <input id="signup-email" type="email" />
+              <input id="signup-email" placeholder="Enter email" type="email" />
             </td>
           </tr>
           <tr>
             <td>Organisation Name</td>
             <td>
-              <input id="signup-org-name" type="text" />
+              <input id="signup-org-name" placeholder="Enter Organisation name" type="text" />
             </td>
           </tr>
           <tr>
             <td>Password</td>
             <td>
-              <input id="signup-password1" type="password" />
+              <input id="signup-password1" placeholder="Enter password"  type="password" />
             </td>
           </tr>
           <tr>
             <td>Confirm Password</td>
             <td>
-              <input id="signup-password2" type="password" />
+              <input id="signup-password2" placeholder="Confirm Password" type="password" />
             </td>
           </tr>
           <tr>

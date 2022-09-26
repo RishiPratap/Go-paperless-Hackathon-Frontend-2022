@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# <b>SigNation</b> is Form submission status viewer <img src=https://www.linkpicture.com/q/WhatsApp-Image-2022-09-26-at-22.01.40.jpeg height=120 width=200 align='right'>
+![](https://img.shields.io/github/forks/RishiPratap/hellosign-frontend?color=green&style=for-the-badge)
+![](https://img.shields.io/github/stars/RishiPratap/hellosign-frontend?color=blueviolet&style=for-the-badge)
+![](https://img.shields.io/github/license/RishiPratap/hellosign-frontend?color=blue&style=for-the-badge)
+![](https://img.shields.io/badge/version-1.0-pink.svg?style=for-the-badge)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+`SigNation is Form submission status viewer.` 
+## 🟠Built With:
+| Software/ Language | Version |
+|----------|---------|
+| JavaScript | ES6 |
+| React      | 16.13.1 |
+| NODEJS     | 12.16.1 |
+| Firebase          | 9.2.0 |
+| HelloSign SDK    |2.1.0  |
+| DropBox SDK     |  |
+| Google Chrome Browser | 87.0.4280.141 |
+| Visual Studio Code | 1.52 |
+## 🔴Support:
+| Software | Tested with |
+|----------|-------------|
+| Google Chrome Browser | 87.0.4280.141 |
+| Microsoft Chromium Edge | 87.0.4280.141 |
+| Mozilla Firefox Browser | 84.0.2 |
 
-## Available Scripts
+## 🔶🔶Introduction:
+ SigNation is Form submission status viewer. made using `REACT, NODEJS, FIREBASE, HELLOSIGN API DROPBOX API`.
 
-In the project directory, you can run:
+![](https://www.linkpicture.com/q/LogoTyy.png)
 
-### `npm start`
+* Create your `account` and `SignIn` and start your Journey 😀.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![](https://www.linkpicture.com/q/rishi122.png)
+## 🌈Installing (from source code):
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Clone this repository to your local machine.
+```
+git clone https://github.com/RishiPratap/hellosign-frontend.git
+```
+## 📢Run project on local server
 
-### `npm test`
+First, run the development server:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm start
+# or
+yarn dev
+```
+## 🌐Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ ## ✨Contributors
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<table>
+<tr align="center">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<td>
 
-### `npm run eject`
+Parth Sundarka
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<p align="center">
+<img src = "https://avatars.githubusercontent.com/u/77690791?v=4"  height="120" alt="Parth Sundarka">
+</p>
+<p align="center">
+<a href = "https://github.com/parthusun8"><img src = "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="36" height = "36"/></a>
+<a href = "https://www.linkedin.com/in/parth-sundarka/">
+<img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png" width="36" height="36"/>
+</a>
+</p>
+</td>
+  
+  <td>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+SRIHARI S
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<p align="center">
+<img src = "https://avatars.githubusercontent.com/u/62781914?v=4"  height="120" alt="SRIHARI S">
+</p>
+<p align="center">
+<a href = "https://github.com/SSHSRN"><img src = "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="36" height = "36"/></a>
+<a href = "https://www.linkedin.com/in/sshsrn/">
+<img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png" width="36" height="36"/>
+</a>
+</p>
+</td>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<td>
 
-## Learn More
+Rishi Pratap
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align="center">
+<img src = "https://avatars.githubusercontent.com/u/72687585?v=4"  height="120" alt="Rishi Pratap">
+</p>
+<p align="center">
+<a href = "https://github.com/RishiPratap"><img src = "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="36" height = "36"/></a>
+<a href = "https://www.linkedin.com/in/rishi-pratap-8259621b6/">
+<img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png" width="36" height="36"/>
+</a>
+</p>
+</td>
+  </tr>
+  </table>

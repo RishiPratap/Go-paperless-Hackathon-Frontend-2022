@@ -50,11 +50,11 @@ const SignIn = () => {
             <table>
                 <tr>
                     <td>Email</td>
-                    <td><input id='signin-email' type="email" /></td>
+                    <td><input id='signin-email' placeholder="Enter email" type="email" /></td>
                 </tr>
                 <tr>
                     <td>Password</td>
-                    <td><input id='signin-password' type="password" /></td>
+                    <td><input id='signin-password' placeholder="Enter password" type="password" /></td>
                 </tr>
             </table>
             <button className='submitbtn' onClick={()=> printObject()}>Submit</button>

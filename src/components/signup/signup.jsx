@@ -108,21 +108,21 @@ const SignUp = () => {
                 <Dropdown.Menu>
                   {/* If arrow function is not used in onclick, then the function will run without even clicking */}
                   <Dropdown.Item onClick={() => setRank(1, "Student")}>
-                    1 Student
+                    Student
                   </Dropdown.Item>
                   <Dropdown.Item
                     onClick={() => setRank(2, "Class Representative")}
                   >
-                    2 Class Representative
+                    Class Representative
                   </Dropdown.Item>
                   <Dropdown.Item onClick={() => setRank(3, "Faculty Advisor")}>
-                    3 Faculty Advisor
+                    Faculty Advisor
                   </Dropdown.Item>
                   <Dropdown.Item onClick={() => setRank(4, "Academic Advisor")}>
-                    4 Academic Advisor
+                    Academic Advisor
                   </Dropdown.Item>
                   <Dropdown.Item onClick={() => setRank(5, "HOD")}>
-                    5 HOD
+                    HOD
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>

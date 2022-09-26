@@ -33,7 +33,7 @@ const Profile = () => {
         
         
     }, []);
-    const colors = {"Approved":"green", "Rejected":"red", "Pending":"yellow", "Inbox" : "blue"}
+    const colors = {"Accepted":"green", "Rejected":"red", "Pending":"yellow", "Inbox" : "blue"}
     renderList = applicationList.map((item, index) => 
             <div className={`bods_item ${colors[item.status]}`} key={index}><p className='file_name'>{item.name}</p><Link to={`/status?appln=${item.name}&inbox=${item.status=="Inbox"}`}><p>Check Progress</p></Link></div>);
 

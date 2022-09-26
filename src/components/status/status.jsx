@@ -12,12 +12,7 @@ const client = new HelloSign({
   clientId: "7c6cd4722bf993f3508d03033f104bce",
 });
 
-var prog_details = {
-  current_hop: 1,
-  total_hops: 6,
-  files: [],
-  signers: [],
-};
+
 
 // axios.post("http://localhost:3000/dropbox/getprogress", )
 
@@ -91,15 +86,20 @@ function Progress() {
         .replaceAll("%20", " "),
     };
     console.log(isInbox);
-    if (isInbox == true) {
+    if (isInbox != false) {
       console.log("Email Changed")
-      options.email = "ps2644@srmist.edu.in";
+      options.email = "student@gmail.com";
+      console.log(options);
     }
     axios
       .post("http://localhost:3000/dropbox/getprogress", options)
       .then((resp) => {
         console.log(resp);
         setprog(resp.data);
+        for(var i=0; i<resp.data.current_hop; i++){
+          incrementStep();
+        }
+
         const stepsLOC = [];
         for (let i = 0; i < resp.data.total_hops; i++) {
           stepsLOC.push(<Step />);
@@ -121,15 +121,26 @@ function Progress() {
 
   function launchSign() {
     setClick(true);
+
+    const isInbox = window.location.href
+      .split("?")[1]
+      .split("&")[1]
+      .split("=")[1];
+    const options = {
+      email: localStorage.getItem("email"),
+      application_name: window.location.href
+      .split("?")[1]
+      .split("&")[0]
+      .split("=")[1]
+      .replaceAll("%20", " "),
+    }
+    if (isInbox != false) {
+      console.log("Email Changed")
+      options.email = "student@gmail.com";
+      console.log(options);
+    }
     axios
-      .post("http://localhost:3000/hellosign/getsignurl", {
-        email: localStorage.getItem("email"),
-        application_name: window.location.href
-        .split("?")[1]
-        .split("&")[0]
-        .split("=")[1]
-        .replaceAll("%20", " "),
-      })
+      .post("http://localhost:3000/hellosign/getsignurl", options)
       .then((res) => {
         client.open(res.data, {
           skipDomainVerification: true,
@@ -138,16 +149,10 @@ function Progress() {
         });
         setClick(false);
 
-        client.on("finish", (data) => {
-          axios.post("http://localhost:3000/users/updatehop", {
-            email: localStorage.getItem("email"),
-            application_name: window.location.href
-            .split("?")[1]
-            .split("&")[0]
-            .split("=")[1]
-            .replaceAll("%20", " "),
-          });
+        client.on("finish", () => {
+          axios.post("http://localhost:3000/users/updatehop", options);
           setSigner(false);
+          incrementStep();
         });
       });
   }

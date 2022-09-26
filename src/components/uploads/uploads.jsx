@@ -8,14 +8,16 @@ import { createElement, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import Select from "react-select";
 
-function Uploads() {
-  var selectedOptions = [];
-  var applnObj = {};
+var selectedOptions = [];
+var applnObj = {};
 
-  const [options, setOptions] = useState([{
-    value: "add",
-    label: "Add contact",
-  }]);
+function Uploads() {
+  const [options, setOptions] = useState([
+    {
+      value: "add",
+      label: "Add contact",
+    },
+  ]);
 
   const [renderEl, setrender] = useState(false);
 

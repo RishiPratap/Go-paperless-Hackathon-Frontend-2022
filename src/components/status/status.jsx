@@ -90,7 +90,9 @@ function Progress() {
         .split("=")[1]
         .replaceAll("%20", " "),
     };
-    if (isInbox) {
+    console.log(isInbox);
+    if (isInbox == true) {
+      console.log("Email Changed")
       options.email = "ps2644@srmist.edu.in";
     }
     axios

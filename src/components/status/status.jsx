@@ -33,7 +33,7 @@ function Progress() {
       .post("http://localhost:3000/dropbox/getprogress", {
         email: localStorage.getItem("email"),
         accessToken:
-          "sl.BP-xCnk-BCC9N3qQoYT-bXqD_TdOz39sWcfKfr61SCwZ6tHIC34bDLbZMN6Vmd84HzJg42yvLvojeb329aCzoos4-HzVTnTeTA3U4HRhlefBNW-B7p2T7-nHOx3ei0YMwWncka5S5FYA",
+          "sl.BP8gzzFFN1rAOGEiD5Nqi0OF-prvAiL8n5mAejzODoQzbs37bqRAJsIX2P-mEkLn9z1UakcgsZ-4a7gI0gJUrJ8duvz77xIjZvpRn6IuDpI7ucsizRZxzgrg1TPbQpto1MzUjmZJrI4G",
         path: window.location.href
           .split("?")[1]
           .split("=")[1]
@@ -103,24 +103,25 @@ function Progress() {
   ); //(current, total hops)
   return (
     <>
-      <div className="step">
+      <div className="step mt-5">
         <div className="steps">
           <Stepper step={step}>{steps}</Stepper>
         </div>
       </div>
       <center>
-        <table className="b1 p-3">
+        <table className="b1 p-3 mt-5">
+          <tr className="text-center">test</tr>
           <tr>
             <td>Application name:</td>
             <td>{applName}</td>
           </tr>
           <tr>
             <td>Application file:</td>
-            <td>{files[0]}</td>
+            <td>{files[0]?files[0]:"File is not uploaded yet"}</td>
           </tr>
           <tr>
             <td>Proof:</td>
-            <td>{files[1]}</td>
+            <td>{files[1]?files[1]:"File is not uploaded yet"}</td>
           </tr>
         </table>
       </center>

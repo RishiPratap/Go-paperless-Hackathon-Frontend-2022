@@ -46,7 +46,7 @@ const SignIn = () => {
     return (
       <>
         <center><div className='signInDiv mt-5 p-5'>
-        
+          <center><h3>Sign In</h3></center>
             <table>
                 <tr>
                     <td>Email</td>
@@ -57,7 +57,7 @@ const SignIn = () => {
                     <td><input id='signin-password' type="password" /></td>
                 </tr>
             </table>
-            <button onClick={()=> printObject()}>Submit</button>
+            <button className='submitbtn' onClick={()=> printObject()}>Submit</button>
         </div></center>
         <div className="Explore"></div>
       </>

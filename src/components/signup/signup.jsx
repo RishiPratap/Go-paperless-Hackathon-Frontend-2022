@@ -67,7 +67,8 @@ const SignUp = () => {
     <center>
     <div className="Explore"></div>
       <div className="signUpDiv mt-5 p-5">
-        <table>
+        <center><h3>Sign Up</h3></center>
+        <table className="signUpTable">
           <tr>
             <td>Name</td>
             <td>
@@ -129,7 +130,7 @@ const SignUp = () => {
             </td>
           </tr>
         </table>
-        <button onClick={() => printObject()}>Submit</button>
+        <button className="mt-4 submitbtn" onClick={() => printObject()}>Submit</button>
       </div>
       
     </center>

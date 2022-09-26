@@ -1,13 +1,13 @@
 .uploads{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 .forms{
-    height: 400px;
+    margin-top: 125px;
+    margin-bottom: 125px;
+    min-height: 400px;
     width: 550px;
     border-radius: 30px;
     border: 1px solid black;
@@ -19,7 +19,6 @@
     box-shadow: 0px 0px 20px 0px white;
 backdrop-filter: blur(0px);
 -webkit-backdrop-filter: blur(0px);
-    overflow-y: scroll;
 }
 
 label{

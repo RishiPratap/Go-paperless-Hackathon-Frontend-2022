@@ -97,7 +97,7 @@ function Uploads() {
   function submit_details() {
     console.log(selectedOptions);
     applnObj["accessToken"] =
-      "sl.BQAVc4hdpa7QZMxzTvX359c2jt3hZpW8iGrIeav2OECumcaVcoqjxS_tiXrOIYaWfhJBi9q1TrxsT9Vn_QwruzfL23YDUzmTsl_mEIzsPCRJIGgkvS4vUpH2tzaxEe4LbXureyqp2zJv";
+      "sl.BQBeOujSDJQGYODfZHtoWgX4ZvVcwGBaLFxmQzAmcr-ECtsl5g1Uy4GXz9KP1fekCRIcVW3CjexGYX53TvbFygFYYMsyY8DR7blazSLTUmQXFISiCQEbVrkq2hBaITU9A5OfT2DAWrYj";
     applnObj["appName"] = document.getElementById("applnName").value;
     applnObj["email"] = JSON.parse(localStorage.getItem("data")).email;
     //applnObj["applType"] = document.getElementById("applnType").value;

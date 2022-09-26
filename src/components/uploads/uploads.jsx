@@ -70,7 +70,7 @@ function Uploads() {
 
   function submit_details(){
     console.log(selectedOptions);
-    applnObj["accessToken"] = "sl.BP-TktAPHZ9O3faK3zy3mG9vEIZfakDJC92NIJL3JE-TxVX47nmhuFYOHwjdcthAc5r4sVjgw4ehEjgatx-fNbf31-o1TEEDp58byB7tM5ieYRCCdgbUZOcE2w7uG4iWdPdSUm8S1LNC";
+    applnObj["accessToken"] = process.env.REACT_APP_API_KEY;
     applnObj["appName"] = document.getElementById("applnName").value;
     applnObj["email"] = JSON.parse(localStorage.getItem("data")).email;
     //applnObj["applType"] = document.getElementById("applnType").value;

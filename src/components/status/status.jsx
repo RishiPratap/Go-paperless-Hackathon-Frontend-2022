@@ -82,8 +82,7 @@ function Progress() {
       .split("=")[1];
     const options = {
       email: localStorage.getItem("email"),
-      accessToken:
-        "sl.BP-TktAPHZ9O3faK3zy3mG9vEIZfakDJC92NIJL3JE-TxVX47nmhuFYOHwjdcthAc5r4sVjgw4ehEjgatx-fNbf31-o1TEEDp58byB7tM5ieYRCCdgbUZOcE2w7uG4iWdPdSUm8S1LNC",
+      accessToken:process.env.REACT_APP_API_KEY,
       path: window.location.href
         .split("?")[1]
         .split("&")[0]

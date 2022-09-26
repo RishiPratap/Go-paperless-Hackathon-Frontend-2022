@@ -37,3 +37,19 @@ border: 1px solid rgba(255, 255, 255, 0.14);
         background-position: 0% 50%;
     }
 } 
+td{
+    padding: 20px;
+}
+.submitbtn{
+    padding: 10px 30px;
+    border-radius: 20px;
+}
+
+.submitbtn:hover{
+    background-color: lightgreen;
+    border: 2px solid white;
+}
+input{
+    width: 150%;
+    border-radius: 10px;
+}

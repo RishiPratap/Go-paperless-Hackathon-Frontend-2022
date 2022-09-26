@@ -112,8 +112,9 @@ function Uploads() {
   const [contacts, setContacts] = useState([<Contact i={1} key={1}/>]);
 
   return (
-    <div className="uploads">
+    <div className="uploads mt-5">
       <div className="forms">
+        <center><h3 className="pt-3">Create New Application</h3></center>
         <Form onSubmit={(e) => e.preventDefault()}>
           <Form.Group className="mb-3" controlId="formGroupText">
             <Form.Label>Application Name</Form.Label>

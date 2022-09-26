@@ -8,8 +8,6 @@ import axios from 'axios';
 // After Setting up Firebase connection, all the data should be pulled from the db
 var link = "";
 
-
-
 var arr = ["Student", "Class Representative", "Faculty Advisor", "HOD"];
 var res;
 const Profile = () => {
@@ -22,7 +20,6 @@ const Profile = () => {
     ])
 
     let renderList = [];
-
 
     useEffect(() => {
         axios.post('http://localhost:3000/dropbox/viewapplication', {
@@ -59,17 +56,13 @@ const Profile = () => {
     }
     res = JSON.parse(localStorage.getItem("data"));
 
-
-
-    
-
     return(
         <div className='Profile'>
         <div className="Explore"></div>
             <div className="userProfile p-3">
                 <center>
-                    <h2>User Details</h2>
-                    <img className='profilePic' id='profilePic' src={res.dp_url} alt="" />
+                    <h2 className='mb-3'>User Details</h2>
+                    <img className='profilePic mb-3' id='profilePic' src={res.dp_url} alt="" />
                     <table>
                         <tbody>
                             <tr>
@@ -94,8 +87,9 @@ const Profile = () => {
                     {/* <button>Update</button> */}
                 </center>
             </div>
-            <div className='bods'><Link to='/upload'><p>Create New Application</p></Link></div>
-            <div className='History'>
+            <Link to='/upload'><div className='bods mt-5 mb-5 createApplnBtn'><p>Create New Application</p></div></Link>
+            <div className='History mb-5 pt-4 pb-4'>
+                <center><h3>Applications</h3></center>
                 {renderList}
             </div>
         </div>

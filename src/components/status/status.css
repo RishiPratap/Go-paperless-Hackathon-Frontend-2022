@@ -15,8 +15,10 @@
     justify-content:space-evenly;
     align-items: center;
 }
-
 .b1{
     display: inline-block;
     border: 3px solid black;
+}
+td{
+    padding: 20px;
 }
